@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: NODE_FILES
-        path: dist
+        path: build
 
   Deploy_To_DEV_S3:
     runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: NODE_FILES
-        path: dist
+        path: build
     - uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
